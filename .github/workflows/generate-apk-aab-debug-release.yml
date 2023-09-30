@@ -32,12 +32,17 @@ jobs:
       - name: Set repository name as env variable
         run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
 
-      - name: Set Up JDK
-        uses: actions/setup-java@v3
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.13.0
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: '16'
-          cache: 'gradle'
+    # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+          java-version: 16
+    # Java distribution. See the list of supported distributions in README file
+          distribution: zulu
+    # The package type (jdk, jre, jdk+fx, jre+fx)
+          java-package: jdk
+    # The architecture of the package (defaults to the action runner's architecture)
+          architecture: x64
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
