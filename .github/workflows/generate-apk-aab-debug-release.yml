@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-java@v3.13.0
         with:
     # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-          java-version: 16
+          java-version: 10     
     # Java distribution. See the list of supported distributions in README file
           distribution: zulu
     # The package type (jdk, jre, jdk+fx, jre+fx)
